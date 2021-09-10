@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7DCE3E94-B615-483E-9CE0-ADD430A0EE5F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Chat.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\Administrator\Downloads\MenuWhatsApp\WhatsappMenu.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Chat">
+        <MSBuild Projects="Chat.dproj"/>
+    </Target>
+    <Target Name="Chat:Clean">
+        <MSBuild Projects="Chat.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Chat:Make">
+        <MSBuild Projects="Chat.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WhatsappMenu">
+        <MSBuild Projects="C:\Users\Administrator\Downloads\MenuWhatsApp\WhatsappMenu.dproj"/>
+    </Target>
+    <Target Name="WhatsappMenu:Clean">
+        <MSBuild Projects="C:\Users\Administrator\Downloads\MenuWhatsApp\WhatsappMenu.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WhatsappMenu:Make">
+        <MSBuild Projects="C:\Users\Administrator\Downloads\MenuWhatsApp\WhatsappMenu.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Chat;WhatsappMenu"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Chat:Clean;WhatsappMenu:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Chat:Make;WhatsappMenu:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

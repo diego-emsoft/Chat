@@ -1,0 +1,6 @@
+/Win32
+/_*
+*.local
+*.groupproj.local
+*.identcache
+*.res

@@ -1,1 +1,1 @@
-Chat
+Projeto para Chat em tempo real
